@@ -591,12 +591,12 @@ header .small-screen {
 }
 
 @media (max-width: 992px) {
-  .seventh-page .container .inside-container{
+  .seventh-page .container .inside-container {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media (max-width: 768px) {
-  .seventh-page .container .inside-container{
+  .seventh-page .container .inside-container {
     grid-template-columns: 1fr;
   }
 }
@@ -969,3 +969,140 @@ header .small-screen {
   max-width: 30%;
 }
 /* End eleventh-page */
+
+/* Start contact-us */
+.contact-us {
+  padding-top: var(--page-padding);
+  padding-bottom: var(--page-padding);
+}
+.contact-us .flex-display {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+.contact-us .flex-display .form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex-basis: 70%;
+}
+.contact-us .flex-display .info-box {
+  flex-basis: 25%;
+}
+
+.contact-us .flex-display .form-box input,
+.contact-us .flex-display .form-box textarea {
+  padding: 20px;
+  border: 1px solid lightgray;
+}
+.contact-us .flex-display .form-box input::placeholder {
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+}
+.contact-us .flex-display .form-box textarea {
+  height: 200px !important;
+  resize: vertical;
+}
+.contact-us .flex-display .form-box button {
+  padding: 20px;
+  color: white;
+  border: none;
+  background-color: var(--main-color);
+  text-transform: uppercase;
+  width: fit-content;
+  align-self: flex-end;
+}
+.contact-us .flex-display .form-box button:hover {
+  cursor: pointer;
+}
+.contact-us .flex-display .info-box h2 {
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+.contact-us .flex-display .info-box p {
+  color: var(--muted-text-color);
+  line-height: 30px;
+}
+.contact-us .flex-display .info-box p:nth-of-type(2) {
+  margin-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .contact-us .flex-display {
+    flex-direction: column;
+  }
+  .contact-us .flex-display .info-box {
+    order: -1;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+/* End contact-us */
+
+/* Start footer */
+footer {
+  position: relative;
+  background-image: url(../images/subscribe.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+footer::after {
+  position: absolute;
+  content: '';
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+footer > div {
+  position: relative;
+  z-index: 5;
+}
+footer div img {
+  display: block;
+  margin: auto;
+  margin-bottom: 60px;
+}
+footer div h2 {
+  position: relative;
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding:20px 20px ;
+}
+footer div h2::after {
+  content: '';
+  position: absolute;
+  z-index: 5;
+  background-color: white;
+  height: 1px;
+  width: 230px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+footer .icons {
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  width: fit-content;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+footer .icons i:not(:last-child) {
+  margin-right: 20px;
+}
+footer .icons + p {
+  color: white;
+  text-align: center;
+}
+footer .icons + p strong{
+  color: var(--main-color);
+}
+
+/* End footer */
