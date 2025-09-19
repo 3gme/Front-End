@@ -87,6 +87,9 @@ a {
 @media (max-width: 767px) {
   .special-box {
     width: 100%;
+    max-width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 }
 /* ------------------- */
@@ -538,15 +541,18 @@ header .small-screen {
   background-image: url(../images/stats.png);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: var(--page-padding);
+  padding-top: var(--page-padding);
+  padding-bottom: var(--page-padding);
 }
-.seventh-page .container {
+
+.seventh-page .container .inside-container {
+  background-color: var(--special-box-color);
   display: grid;
   gap: 20px;
   position: relative;
   z-index: 3;
-  background-color: var(--special-box-color);
-  padding: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   grid-template-columns: repeat(4, 1fr);
   max-width: 100%;
 }
@@ -560,11 +566,11 @@ header .small-screen {
   top: 0;
   left: 0;
 }
-.seventh-page .container .flex-display {
+.seventh-page .container .inside-container .flex-display {
   text-align: center;
   color: white;
 }
-.seventh-page .container .flex-display .i {
+.seventh-page .container .inside-container .flex-display .i {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -576,7 +582,7 @@ header .small-screen {
   border-radius: 50%;
   background-color: black;
 }
-.seventh-page .container .flex-display h2 {
+.seventh-page .container .inside-container .flex-display h2 {
   font-size: 60px;
   font-weight: 600;
   letter-spacing: -2.8px;
@@ -585,12 +591,12 @@ header .small-screen {
 }
 
 @media (max-width: 992px) {
-  .seventh-page .container {
+  .seventh-page .container .inside-container{
     grid-template-columns: 1fr 1fr;
   }
 }
 @media (max-width: 768px) {
-  .seventh-page .container {
+  .seventh-page .container .inside-container{
     grid-template-columns: 1fr;
   }
 }
@@ -884,6 +890,82 @@ header .small-screen {
   color: white;
   padding: 15px 20px;
   background-color: var(--main-color);
-
 }
 /* End tenth-page */
+
+/* Start eleventh-page */
+.eleventh-page {
+  padding-top: var(--page-padding);
+  padding-bottom: var(--page-padding);
+  background-image: url(../images/subscribe.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.eleventh-page::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+.eleventh-page .container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  color: white;
+}
+.eleventh-page .supscripe {
+  width: 500px;
+  max-width: 100%;
+  border: 1px solid white;
+  display: flex;
+  margin-right: 40px;
+}
+@media (max-width: 768px) {
+  .eleventh-page .container {
+    flex-direction: column;
+  }
+  .eleventh-page .supscripe {
+    margin-right: 0px;
+    margin-bottom: 50px;
+    max-width: 100%;
+  }
+}
+
+.eleventh-page .supscripe input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  height: 60px;
+  flex: 1;
+  max-width: 100%;
+  position: relative;
+}
+.eleventh-page .supscripe input::after {
+  content: "\f0e0 your email";
+  text-transform: capitalize;
+  color: black;
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.eleventh-page .supscripe a {
+  height: 60px;
+  background-color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 30%;
+}
+/* End eleventh-page */
