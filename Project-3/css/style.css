@@ -961,6 +961,9 @@ header .small-screen {
   flex: 1;
   max-width: 100%;
   position: relative;
+  background-color: transparent;
+  color: white;
+  padding-left: 20px;
 }
 .eleventh-page .supscripe input::after {
   content: "\f0e0 your email";
