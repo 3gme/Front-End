@@ -359,7 +359,7 @@ header .small-screen {
 .third-page img {
   position: absolute;
   bottom: -80px;
-  left: 5%;
+  left: 7%;
   z-index: 5;
 }
 .third-page .text-box {
@@ -391,6 +391,16 @@ header .small-screen {
   .third-page .text-box {
     width: 100%;
   }
+}
+@media (min-width: 1000px) {
+  .third-page img {
+  left: 10%;
+}
+}
+@media (min-width: 1300px) {
+  .third-page img {
+  left: 15%;
+}
 }
 /* End third-page */
 
@@ -530,6 +540,11 @@ header .small-screen {
   max-width: 100%;
   bottom: -120px;
   margin-bottom: -100px;
+}
+@media (max-width: 450px) {
+  .sixth-page img{
+    bottom: -60px;
+  }
 }
 /* End sixth-page */
 
