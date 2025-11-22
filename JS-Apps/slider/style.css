@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.action {
+  margin: 20px auto;
+  width: 250px;
+  display: flex;
+  justify-content: space-around;
+}
+.action span{
+  color: black;
+  background-color: lightgray;
+  padding: 5px 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.action span.active {
+  color: white;
+  background-color: green;
+}
+.slider-container {
+  height: 300px;
+  width: 300px;
+  position: relative;
+  margin: 10px auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.slider-container img {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  display: block;
+  width: 280px;
+  object-fit: cover;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.slider-container img.slideMode {
+  left: -100%;
+}
+.slider-container img.active {
+  opacity: 1;
+  left: 10px;
+}
+
+.slider-container .slide-number {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: gray;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 7px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.slider-container:hover .slide-number {
+  opacity: 1;
+  z-index: 2;
+}
+.slider-controls {
+  width: 400px;
+  margin: 10px auto;
+}
+.slider-controls .prev,
+.slider-controls .next {
+  background-color: green;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 7px;
+  width: 20%;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+.slider-controls .prev.inactive,
+.slider-controls .next.inactive {
+  opacity: 0.5;
+  cursor: no-drop;
+}
+.slider-controls .prev {
+  float: left;
+}
+.slider-controls .next {
+  float: right;
+}
+.slider-controls .indicators {
+  display: block;
+  float: left;
+  width: 60%;
+}
+.slider-controls .indicators ul {
+  list-style-type: none;
+  list-style-position: outside;
+  text-align: center;
+}
+.slider-controls .indicators ul li {
+  display: inline-block;
+  color: black;
+  background-color: lightgray;
+  width: fit-content;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.slider-controls .indicators ul li.active {
+  background-color: green;
+  color: white;
+  transform: scale(1.2);
+}
