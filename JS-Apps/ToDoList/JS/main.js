@@ -9,43 +9,46 @@ const completedTasks = document.querySelector(`.completed-tasks`);
 let taskCount = 0;
 let taskCompleted = 0;
 
+window.onload = LoadTasks;
+
 plus.onclick = () => {
-  let myNewTask = inputBox.value;
+  let myNewTask = inputBox.value.trim();
   if (myNewTask) {
-    let flag = addTaskChecker(myNewTask);
-    if (!flag) {
+    if (!addTaskChecker(myNewTask)) {
       createTask(myNewTask);
+      SaveTasks();
       inputBox.value = "";
     }
     updateTotalTasks();
-  }
+  } else shakeInput();
 };
 
-function createTask(taskString) {
+function createTask(taskString, isFinished = false) {
   taskCount++;
   let span = document.createElement("span");
   span.classList.add("task-box");
-  triggerdone(span);
+  if (isFinished) {
+    span.classList.add(`finished`);
+    taskCompleted++;
+  }
   span.appendChild(document.createTextNode(taskString));
+
   let del = document.createElement(`span`);
   del.classList.add("delete");
   del.appendChild(document.createTextNode("Delete"));
   span.appendChild(del);
-  del.addEventListener(`click`, () => {
-    deleteTask(span);
-    updateCompletedTasks();
-  });
+
   taskPlace.appendChild(span);
   noTasksSpan.remove();
+  updateTotalTasks();
+  updateCompletedTasks();
 }
 
-// Get all Task and check for not repeating
 function addTaskChecker(taskString) {
   let totalTasks = Array.from(document.querySelectorAll(`.tasks .task-box`));
   let flag = false;
   totalTasks.forEach((e) => {
     if (taskString === e.childNodes[0].textContent.trim()) {
-      console.log("repeated");
       flag = true;
       shakeInput();
       return;
@@ -69,21 +72,48 @@ function updateCompletedTasks() {
 // delete task
 function deleteTask(Node) {
   taskCount--;
-  if(Node.classList.contains(`finished`)){
+  if (Node.classList.contains(`finished`)) {
     taskCompleted--;
   }
   Node.remove();
   updateTotalTasks();
+  updateCompletedTasks();
   if (taskCount === 0) taskPlace.append(noTasksSpan);
 }
 
-// triger task done or not
-function triggerdone(Node) {
-  Node.addEventListener("click", (e) => {
-    console.log(e.target);
-    if (e.target === Node) {
-      Node.classList.toggle(`finished`) ? taskCompleted++ : taskCompleted--;
-      updateCompletedTasks();
-    }
+function toggleDone(Node) {
+  Node.classList.toggle(`finished`) ? taskCompleted++ : taskCompleted--;
+  updateCompletedTasks();
+}
+
+taskPlace.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete")) {
+    deleteTask(e.target.parentElement);
+  } else if (e.target.classList.contains("task-box")) {
+    toggleDone(e.target);
+  }
+  SaveTasks();
+});
+
+// local storage Handling
+// 1- SaveTasks
+
+function SaveTasks() {
+  const myTasksHTML = Array.from(document.querySelectorAll(`.task-box`));
+
+  const myTasksToLocalStorage = myTasksHTML.map((e) => ({
+    task: e.childNodes[0].textContent.trim(),
+    completed: e.classList.contains(`finished`),
+  }));
+  localStorage.setItem("tasks", JSON.stringify(myTasksToLocalStorage));
+}
+
+// 2- loadTasks
+
+function LoadTasks() {
+  let myTasks = JSON.parse(localStorage.getItem(`tasks`));
+  myTasks.forEach(task => {
+    console.log(task.task);
+    createTask(task.task, task.completed);
   });
 }
