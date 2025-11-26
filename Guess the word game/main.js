@@ -182,6 +182,7 @@ checkButton.addEventListener(`click`, () => {
   guessResultDiv.innerHTML = "";
   if (correctGuess) {
     checkButton.disabled = true;
+    hintButton.disabled = true;
     tryies[currentTry - 1].classList.add("disabled");
     currentRowBoxes.forEach((e) => {
       if (e.value.trim() === "") {
