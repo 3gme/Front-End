@@ -3,9 +3,7 @@ let gameName = "Guess Word Game";
 document.title = gameName;
 
 document.querySelector(`.title`).textContent = gameName;
-document.querySelector(
-  `footer`
-).textContent = `© ${new Date().getFullYear()} ${gameName}`;
+document.querySelector(`footer`).textContent = `© ${new Date().getFullYear()} ${gameName}`;
 
 let guessResultDiv = document.querySelector(`.guess-result`);
 

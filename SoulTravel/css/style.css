@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --primary-color: #ff833e;
+  --primary-color-dark: #db6f35;
+  --text-dark: #333333;
+  --text-light: #767268;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --header-font: "Bebas Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  width: 100%;
+  z-index: 9;
+}
+
+nav .nav__content {
+  background-color: var(--primary-color);
+  max-width: var(--max-width);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 1rem;
+  padding-block: 1.3rem;
+}
+
+.buttons {
+  display: none;
+}
+
+nav .nav__content i {
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+nav .nav__content .nav__logo {
+  font-family: var(--header-font);
+  font-size: 2rem;
+  color: var(--white);
+}
+
+nav .nav__content .nav__links {
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
+  top: 83px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--primary-color);
+  transform: translateY(-100%);
+  transition: transform 0.5s;
+  z-index: -1;
+}
+
+nav .nav__content .nav__links.open {
+  transform: translateY(0);
+}
+
+.nav__links a {
+  color: white;
+}
+
+.nav__links a:hover {
+  color: var(--text-dark);
+}
+
+@media (width > 768px) {
+  nav .nav__content {
+    background-color: var(--white);
+  }
+
+  nav .nav__content .nav__logo {
+    color: var(--text-dark);
+  }
+  nav .nav__content .nav__logo span {
+    color: var(--primary-color);
+  }
+
+  nav .nav__content .nav__links {
+    position: static;
+    transform: none;
+    z-index: auto;
+    background-color: transparent;
+    flex-direction: row;
+    gap: 2rem;
+    font-weight: 500;
+  }
+  nav .nav__content .nav__links a {
+    border-bottom: 4px solid transparent;
+    padding-bottom: 5px;
+  }
+  nav .nav__content .nav__links a:hover {
+    border-color: var(--primary-color);
+  }
+  .nav__links a {
+    color: var(--text-dark);
+  }
+
+  .buttons {
+    display: flex;
+    flex: 1;
+  }
+  .buttons button {
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 7px;
+    cursor: pointer;
+  }
+  .buttons .sign__up {
+    background-color: transparent;
+  }
+  .buttons .sign__up:hover {
+    color: var(--primary-color);
+  }
+  .buttons .sign__in {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  .buttons .sign__in:hover {
+    background-color: var(--primary-color-dark);
+  }
+}
+
+/* Start Header */
+/* Start Header */
+/* Start Header */
+
+header {
+  padding: 1rem;
+  padding-top: 83px;
+  max-width: var(--max-width);
+  margin: auto;
+}
+.header__img {
+  margin-inline: auto;
+  background-image: url(../images/header-bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  max-width: 540px;
+  max-height: 540px;
+  aspect-ratio: 1/1;
+  margin-top: 4rem;
+  position: relative;
+}
+.header__img::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.5;
+  z-index: 2;
+}
+.header__img img {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 100%;
+  max-width: 600px;
+  transform: translate(-50%, -50%);
+}
+
+.header__img div {
+  position: absolute;
+  z-index: 4;
+  background-color: #fff;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+}
+.header__img div i {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header__img .TR {
+  right: 0;
+  top: 0;
+  transform: translateX(15%) translateY(0);
+}
+.header__img .TL {
+  left: -20%;
+  top: 15%;
+}
+.header__img .BL {
+  bottom: 30%;
+  left: -5%;
+}
+.header__img .BR {
+  right: -14%;
+  bottom: 20%;
+}
+
+.header_content {
+  margin-top: 4rem;
+}
+.header_content h1 {
+  font-size: 3.3rem;
+  text-align: center;
+  transform: scaleY(1.2);
+  line-height: 3.5rem;
+  letter-spacing: -1px;
+}
+.header_content h1 span {
+  color: var(--primary-color);
+}
+
+.header_content h1 + p {
+  text-align: center;
+  margin-block: 2rem;
+  line-height: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.header_content > div {
+  background-color: white;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
+.header_content > div > div {
+  display: flex;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.header_content > div > div div {
+  flex: 1;
+  min-width: 150px;
+}
+.header_content > div > div div p:first-child {
+  color: var(--text-light);
+  margin-bottom: 5px;
+}
+.header_content > div > div div p:last-child i {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+.header_content > div button {
+  width: 100%;
+  background: var(--primary-color);
+  padding-block: 1rem;
+  font-size: 1rem;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 9px;
+}
+.header_content > div button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.header_content p:last-child {
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 2rem;
+}
+/* End Header */
+
+@media (width > 768px) {
+  header {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr 1fr; /* two equal columns */
+    align-items: center; /* vertically center content */
+    gap: 2rem; /* optional spacing between columns */
+  }
+
+  .header__img {
+    width: 100%;
+    height: auto; /* or let aspect-ratio calculate height */
+    margin-inline: auto;
+    grid-area: 1/2/2/3
+  }
+
+  .header__img img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 540px; /* limit image size */
+    transform: translate(-50%, -50%);
+  }
+  .header_content {
+    position: relative;
+    z-index: 7;
+  }
+  .header_content :is(h1, p) {
+    text-align: left !important;
+  }
+  .header_content h1 {
+    font-size: 3rem;
+  }
+
+  .header_content p:last-child {
+  text-align: left;
+  font-size: 0.9rem;
+}
+}
+
+

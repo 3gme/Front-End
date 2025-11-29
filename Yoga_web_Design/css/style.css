@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: #9a4b7b;
+  --primary-color-dark: #782a59;
+  --text-dark: #333333;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+  max-width: var(--max-width);
+}
+
+nav .nav_header {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .nav_header .nav_logo img {
+  max-width: 120px;
+  width: 100%;
+  object-fit: contain;
+}
+nav .nav_header .nav_logo .logo-dark {
+  display: none;
+}
+
+nav .nav_header .nav_menu_btn i {
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav .nav_links {
+  position: absolute;
+  width: 100%;
+  list-style-type: none;
+  left: 0;
+  top: 100%;
+  padding: 1rem;
+  background-color: #9a4b7b;
+  text-align: center;
+  background-color: var(--primary-color);
+  z-index: -1;
+  overflow: hidden;
+  transform: translateY(-100%);
+  transition: transform 0.5s;
+}
+nav .nav_links.active {
+  transform: translateY(0%);
+  pointer-events: auto;
+  z-index: 10;
+}
+
+nav .nav_links li {
+  padding: 1rem;
+}
+
+nav .nav_links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+header {
+  padding: 1rem;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+header .header_img {
+  display: flex;
+  justify-content: center;
+}
+
+header .header_img img {
+  width: 100%;
+  max-width: 500px;
+}
+
+header .header_content {
+  margin-top: 2rem;
+}
+
+header .header_content h2 {
+  color: var(--primary-color);
+  font-weight: 800;
+  text-align: center;
+  font-size: 2rem;
+}
+header .header_content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+header .header_content p {
+  line-height: 1.75rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  text-align: center;
+}
+
+header .header_content button {
+  padding: 1rem 1.5rem;
+  outline: none;
+  border: none;
+  border-radius: 5rem;
+  background-color: var(--primary-color);
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-weight: 600;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header .header_content button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+header .header_content .social_media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+header .header_content .social_media li {
+  width: fit-content;
+}
+header .header_content .social_media li a {
+  padding: 8px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+header .header_content .social_media li a:hover {
+  background-color: var(--primary-color-dark);
+}
+
+header .header_content .social_media li a i {
+  color: white;
+}
+
+@media (width > 768px) {
+  nav {
+    position: static;
+    padding: 1rem;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .nav_header {
+    padding: 0;
+    background-color: transparent;
+  }
+  .logo-white {
+    display: none;
+  }
+  nav .nav_header .nav_logo .logo-dark {
+    display: block;
+  }
+
+  nav .nav_links {
+    position: static;
+    width: fit-content;
+    display: flex;
+    padding: 0;
+    transform: none;
+    background-color: transparent;
+    z-index: auto;
+  }
+
+  nav .nav_links li a {
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: color 0.3s;
+  }
+
+  nav .nav_links li a:hover {
+    color: var(--primary-color);
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  header .header_content {
+    grid-area: 1/1/2/2;
+  }
+  header .header_content :is(h2, h1, p) {
+    text-align: left;
+  }
+
+  header .header_content button {
+    margin-left: 0;
+  }
+  header .header_content .social_media {
+    justify-content: flex-start;
+  }
+}
